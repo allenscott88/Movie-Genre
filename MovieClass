@@ -1,0 +1,50 @@
+
+public class Movie {
+	private String Title;
+	private String Category;
+	
+//setting the string title
+public void setTitle(String t)
+{
+Title=t; 	
+
+}
+//being able to get the string title
+public String getTitle()
+{
+return Title; 	
+
+}
+//setting the category string
+public void setCategory(String c)
+{
+	Category = c; 	
+
+}
+//being able to get the category string
+public String getCategory()
+{
+return Category; 	
+
+}
+public Movie()
+{
+	Title="Not set yet!";
+	Category="Not set yet!";
+}
+public Movie(String pTitle, String pCategory)
+{
+	Title = pTitle; 
+	Category= pCategory; 
+
+}
+
+public Movie(String Title)
+{
+	this.Title=Title;  
+	
+}
+
+
+
+}
