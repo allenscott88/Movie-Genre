@@ -1,0 +1,87 @@
+
+//imported scanner
+import java.util.*;
+
+public class movieProgram {
+	// established the main
+	public static void main(String[] args) {
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		Scanner sc1 = new Scanner(System.in);
+		// created array
+		Movie[] array = new Movie[10];
+		// created string for do while
+		String choice = "y";
+
+		String choice2 = "";
+		// printed greeting
+		System.out.println("Welcome to the Movie List Application!");
+		System.out.println("");
+		
+		// for loop to get array
+		for (int i = 0; i < 10; i++) {
+
+			array[i] = new Movie();
+		}
+		// gave array values....titles and categories
+		array[0].setTitle("South Park");
+		array[0].setCategory("animated");
+		array[1].setTitle("The Town");
+		array[1].setCategory("drama");
+		array[2].setTitle("28 Days later");
+		array[2].setCategory("horror");
+		array[3].setTitle("Gattaca");
+		array[3].setCategory("scifi");
+		array[4].setTitle("The One");
+		array[4].setCategory("scifi");
+		array[5].setTitle("Memento");
+		array[5].setCategory("drama");
+		array[6].setTitle("Finding Nemo");
+		array[6].setCategory("animated");
+		array[7].setTitle("Saw");
+		array[7].setCategory("horror");
+		array[8].setTitle("Leon: The Professional");
+		array[8].setCategory("drama");
+		array[9].setTitle("Toy Story");
+		array[9].setCategory("animated");
+		// created do while to get program to run while prompted to
+		do {
+			System.out.println("There are 10 movies in this list. What catergory are you interested in?(horror/scifi/animated/drama):");
+			System.out.println("");
+			choice2 = sc1.nextLine();
+			choice2 = validator(sc1, choice2);
+
+			for (int i = 0; i < 10; i++) {
+
+				if (array[i].getCategory().equals(choice2))
+					System.out.println(array[i].getTitle());
+			}
+			System.out.println("");
+			System.out.print("Continue? (y/n): ");
+			choice = sc.next();
+
+			// prompts the user to continue program
+		} while (choice.equalsIgnoreCase("y"));
+		{
+			// if the user selects no close program
+			if (choice.equalsIgnoreCase("n"))
+				System.out.println("Goodbye.");
+		}
+		if (!choice.equalsIgnoreCase("y") || !choice.equalsIgnoreCase("n")) {
+			System.out.println("Invalid Input!!! Have a nice day.");
+		}
+
+	}
+
+	public static String validator(Scanner sc1, String choice2) {
+		while (!choice2.equalsIgnoreCase("scifi") && !choice2.equalsIgnoreCase("horror")
+				&& !choice2.equalsIgnoreCase("drama") && !choice2.equalsIgnoreCase("animated")) {
+			System.out.println("Invalid data!!!");
+			System.out.println("Please enter:(horror/drama/scifi/animated:)");
+			choice2 = sc1.nextLine();
+		}
+
+		return choice2;
+	}
+
+}
